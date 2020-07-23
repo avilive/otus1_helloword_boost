@@ -31,6 +31,7 @@ target_link_libraries(test_version
     helloworld
 )
 
+
 if (MSVC)
     target_compile_options(helloworld_cli PRIVATE
         /W4
