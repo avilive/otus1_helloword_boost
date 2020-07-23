@@ -1,5 +1,22 @@
 cmake_minimum_required(VERSION 3.2)
 
+set(HEADER_FILE "build_number.h")
+set(CACHE_FILE "BuildNumberCache.txt")
+
+#Reading data from file + incrementation
+IF(EXISTS ${CACHE_FILE})
+    file(READ ${CACHE_FILE} BUILD_NUMBER)
+    math(EXPR BUILD_NUMBER "${BUILD_NUMBER}+1")
+ELSE()
+    set(BUILD_NUMBER "1")
+ENDIF()
+
+#Update the cache
+file(WRITE ${CACHE_FILE} "${BUILD_NUMBER}")
+
+#Create the header
+file(WRITE ${HEADER_FILE} "#ifndef BUILD_NUMBER_H\n#define BUILD_NUMBER_H\n\n#define BUILD_NUMBER ${BUILD_NUMBER}\n\n#endif")
+
 project(helloworld VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
