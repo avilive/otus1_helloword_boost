@@ -12,4 +12,4 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-  - curl -T helloword-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -uavilive:$BINTRAY_API_KEY "https://api.bintray.com/content/avilive/otus1_helloword_boost/otus1_helloword_boost/$TRAVIS_BUILD_NUMBER/helloword-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1" -v http://example.com
+  - curl -T helloword-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -uavilive:$BINTRAY_API_KEY "https://api.bintray.com/content/avilive/otus1_helloword_boost/$TRAVIS_BUILD_NUMBER/helloword-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1" -v http://example.com
