@@ -18,9 +18,7 @@ file(WRITE ${CACHE_FILE} "${BUILD_NUMBER}")
 file(WRITE ${HEADER_FILE} "#ifndef BUILD_NUMBER_H\n#define BUILD_NUMBER_H\n\n#define BUILD_NUMBER ${BUILD_NUMBER}\n\n#endif")
 
 project(helloword VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
-
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
-
 configure_file(version.h.in version.h)
 
 add_executable(helloword_cli main.cpp)
